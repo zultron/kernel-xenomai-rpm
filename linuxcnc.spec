@@ -3,7 +3,8 @@
 %global _without_rt_preempt 0
 %global _without_xenomai 0
 %global _without_xenomai_kernel 0
-%global _without_rtai_kernel 0
+# disabling until we have a reasonable RTAI kernel
+%global _without_rtai_kernel 1
 
 # list kernel package versions here
 %global xenomai_kpkg_version 3.5.7-6.xenomai.el6
@@ -354,6 +355,7 @@ find %{buildroot} -type f -name \*.ko -exec %{__chmod} u+x \{\} \;
 - Refactor for Universal Build (universal-build-candidate-3)
 - Build all flavors by default, with one kernel source per kthread flavor
 - Break out flavor binaries into subpackages
+- Disable RTAI build until we have RTAI packages
 - Refactor macro system
 
 * Mon Nov 12 2012 John Morris <john@zultron.com> - 2.6.0-0.4.pre0
